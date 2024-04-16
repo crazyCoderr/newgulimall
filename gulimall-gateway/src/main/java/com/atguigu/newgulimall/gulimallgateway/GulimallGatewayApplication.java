@@ -1,15 +1,15 @@
-package com.atguigu.newgulimall.gulimallcoupon;
+package com.atguigu.newgulimall.gulimallgateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@SpringBootApplication
 @EnableDiscoveryClient
-public class GulimallCouponApplication {
+@SpringBootApplication
+public class GulimallGatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GulimallCouponApplication.class, args);
+        SpringApplication.run(GulimallGatewayApplication.class, args);
     }
 
 }

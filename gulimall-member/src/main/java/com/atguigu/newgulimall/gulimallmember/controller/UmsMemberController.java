@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.atguigu.newgulimall.gulimallmember.feign.CouponFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +31,17 @@ import com.atguigu.newgulimall.common.utils.R;
 public class UmsMemberController {
     @Autowired
     private UmsMemberService umsMemberService;
+
+    @Autowired
+    private CouponFeignService couponFeignService;
+
+    @RequestMapping("/coupons")
+    public R test() {
+        UmsMemberEntity umsMemberEntity = new UmsMemberEntity();
+        umsMemberEntity.setNickname("张三");
+        R memberCouponList = couponFeignService.memberCouponList();
+        return R.ok().put("member", memberCouponList).put("coupons", memberCouponList.get("coupons"));
+    }
 
     /**
      * 列表
